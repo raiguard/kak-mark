@@ -5,6 +5,7 @@ Create marks.
 == Usage
 
 Enter `mark` to use the mark commands.
+Enter `i` to enter insert mode with main selection and iterate selections with `Alt+N` and `Alt+P`.
 Show marks with `show-marks`.
 
 == Configuration
@@ -24,6 +25,7 @@ map -docstring 'mark' global normal m ':mark<ret>'
 Enter a specific mark command:
 
 --------------------------------------------------------------------------------
+map -docstring 'enter insert mode with main selection' global normal '^' ':mark<ret>i'
 map -docstring 'iterate previous selection' global normal '<left>' ':mark<ret>p'
 map -docstring 'iterate next selection' global normal '<right>' ':mark<ret>n'
 map -docstring 'consume selections' global normal '<s-left>' ':mark<ret>C'

@@ -24,6 +24,7 @@ set-face global MarkedSecondaryCursor 'black,blue+fg'
 
 # Mappings ─────────────────────────────────────────────────────────────────────
 
+map -docstring 'enter insert mode with main selection' global mark 'i' ':enter-insert-mode-with-main-selection %val{register}<ret>'
 map -docstring 'consume main selection' global mark 'c' ':consume-main-selection %val{register}<ret>'
 map -docstring 'consume selections' global mark 'C' ':consume-selections %val{register}<ret>'
 map -docstring 'iterate next selection' global mark 'n' ':iterate-next-selection %val{register}<ret>'
@@ -33,6 +34,21 @@ map -docstring 'clear register' global mark 'd' ':clear-register %val{register}<
 map -docstring 'lock' global mark 'l' ':enter-user-mode -lock mark<ret>'
 
 # Commands ─────────────────────────────────────────────────────────────────────
+
+# Reference:
+# https://github.com/mawww/kakoune/blob/master/src/normal.cc#:~:text=enter_insert_mode
+define-command -override enter-insert-mode-with-main-selection -params 1 -docstring 'enter insert mode with main selection and iterate selections with Alt+N and Alt+P (default: ^)' %{
+  execute-keys -save-regs '' "<a-:><a-;>""%arg{1}Z<space>i"
+
+  # Internal mappings
+  map -docstring 'iterate next selection' window insert <a-n> "<a-;>""%arg{1}z<a-;>)<a-;>""%arg{1}Z<a-;><space>"
+  map -docstring 'iterate previous selection' window insert <a-p> "<a-;>""%arg{1}z<a-;>(<a-;>""%arg{1}Z<a-;><space>"
+
+  hook -always -once window ModeChange 'pop:insert:normal' "
+    execute-keys '""%arg{1}z'
+    unmap window insert
+  "
+}
 
 define-command -override consume-selections -params 1..2 -docstring 'consume selections (default: ^)' %{
   restore-selections-from-register %arg{1}
