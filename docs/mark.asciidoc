@@ -34,13 +34,13 @@ map -docstring 'add selections to register' global normal Y ':mark<ret>a'
 map -docstring 'clear register' global normal D ':mark<ret>d'
 --------------------------------------------------------------------------------
 
-Configure faces:
+Orange and green (alpha-blended) faces:
 
 --------------------------------------------------------------------------------
-set-face global MarkedPrimarySelection 'black,bright-magenta'
-set-face global MarkedSecondarySelection 'black,bright-blue'
-set-face global MarkedPrimaryCursor 'black,magenta'
-set-face global MarkedSecondaryCursor 'black,blue'
+set-face global MarkedPrimarySelection "default,rgba:%opt{orange}%opt{selection_alpha}" # Orange (alpha-blended)
+set-face global MarkedSecondarySelection "default,rgba:%opt{green}%opt{selection_alpha}" # Green (alpha-blended)
+set-face global MarkedPrimaryCursor "default,rgba:%opt{orange}%opt{cursor_alpha}" # Orange (alpha-blended)
+set-face global MarkedSecondaryCursor "default,rgba:%opt{green}%opt{cursor_alpha}" # Green (alpha-blended)
 --------------------------------------------------------------------------------
 
 == Commands
