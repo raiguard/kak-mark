@@ -17,10 +17,10 @@ declare-option -hidden str register_name
 declare-option -hidden range-specs mark_ranges
 
 # Faces
-set-face global MarkedPrimarySelection 'black,bright-magenta+fg'
-set-face global MarkedSecondarySelection 'black,bright-blue+fg'
-set-face global MarkedPrimaryCursor 'black,magenta+fg'
-set-face global MarkedSecondaryCursor 'black,blue+fg'
+set-face global MarkedPrimarySelection 'black,bright-magenta'
+set-face global MarkedSecondarySelection 'black,bright-blue'
+set-face global MarkedPrimaryCursor 'black,magenta'
+set-face global MarkedSecondaryCursor 'black,blue'
 
 # Mappings ─────────────────────────────────────────────────────────────────────
 
