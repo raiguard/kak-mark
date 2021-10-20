@@ -5,7 +5,7 @@
 [Source]: rc/mark.kak
 [Documentation]: docs/mark.asciidoc
 
-Mark command for [Kakoune].
+Mark-related commands for [Kakoune].
 
 [Kakoune]: https://kakoune.org
 
