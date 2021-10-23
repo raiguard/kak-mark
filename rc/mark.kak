@@ -6,10 +6,10 @@
 declare-option -hidden range-specs mark_ranges
 
 # Faces
-set-face global MarkedPrimaryCursor '+d@PrimaryCursor'
-set-face global MarkedPrimarySelection '+d@PrimarySelection'
-set-face global MarkedSecondaryCursor '+d@SecondaryCursor'
-set-face global MarkedSecondarySelection '+d@SecondarySelection'
+set-face global MarkedPrimaryCursor '+ub'
+set-face global MarkedPrimarySelection '+ub'
+set-face global MarkedSecondaryCursor '+u'
+set-face global MarkedSecondarySelection '+u'
 
 # Mappings ─────────────────────────────────────────────────────────────────────
 
