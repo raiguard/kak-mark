@@ -112,7 +112,18 @@ define-command -override -hidden update-mark-ranges %{
   }
 }
 
+define-command -override show-marks -docstring 'show marks' %{
+  add-highlighter -override global/marks ranges mark_ranges
+  remove-hooks global show-marks
+  hook -group show-marks -always global RegisterModified '\^' update-mark-ranges
+  update-mark-ranges
+}
+
+define-command -override hide-marks -docstring 'hide marks' %{
+  remove-hooks global show-marks
+  remove-highlighter global/marks
+  evaluate-commands -buffer '*' unset-option buffer mark_ranges
+}
+
 # Initialization
-add-highlighter -override global/marks ranges mark_ranges
-remove-hooks global show-marks
-hook -group show-marks -always global RegisterModified '\^' update-mark-ranges
+show-marks
