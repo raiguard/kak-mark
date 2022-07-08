@@ -68,7 +68,7 @@ define-command -override add-selections -params 1 -docstring 'add-selections <re
 define-command -override consume-selections -params 1 -docstring 'consume-selections <register>: consume selections (default: ^)' %{
   restore-selections %arg{1}
   save-selections %arg{1}
-  execute-keys '<space>'
+  execute-keys ','
 }
 
 define-command -override iterate-next-selection -params 1 -docstring 'iterate-next-selection <register>: iterate next selection (default: ^)' %{
@@ -96,13 +96,13 @@ define-command -override -hidden update-mark-ranges %{
       set-option buffer mark_ranges %val{timestamp}
       # Mark the main selection
       evaluate-commands -draft %{
-        execute-keys '<space>'
+        execute-keys ','
         set-option -add buffer mark_ranges "%val{selection_desc}|MarkedPrimarySelection"
         execute-keys ';'
         set-option -add buffer mark_ranges "%val{selection_desc}|MarkedPrimaryCursor"
       }
       # Mark other selections
-      execute-keys '<a-space>'
+      execute-keys '<a-,>'
       evaluate-commands -draft -itersel %{
         set-option -add buffer mark_ranges "%val{selection_desc}|MarkedSecondarySelection"
         execute-keys ';'
