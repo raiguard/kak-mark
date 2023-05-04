@@ -1,7 +1,8 @@
 # kak-mark
 
-A [kakoune][https://kakoune.org] plugin to easily save/restore selections from
+A [kakoune](https://kakoune.org) plugin to easily save/restore selections from
 the default mark register, and visualize the contents of the register.
+Originally created by [Taupiqueur](https://github.com/alexherbo2).
 
 ## Installation
 
