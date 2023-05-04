@@ -1,16 +1,29 @@
-# mark.kak
+# kak-mark
 
-###### [Documentation] | [Source]
-
-[Source]: rc/mark.kak
-[Documentation]: docs/mark.asciidoc
-
-Mark-related commands for [Kakoune].
-
-[Kakoune]: https://kakoune.org
+A [kakoune][https://kakoune.org] plugin to easily save/restore selections from
+the default mark register, and visualize the contents of the register.
 
 ## Installation
 
-``` sh
-git clone https://github.com/alexherbo2/mark.kak ~/.config/kak/autoload/mark
-```
+Source `mark.kak` in your `kakrc` or use a plugin manager.
+
+## Usage
+
+- `z` ⇒ Restore register.
+- `Z` ⇒ Consume register.
+
+- `D` ⇒ Clear register.
+
+- `Y` ⇒ Add selections.
+- `<a-Y>` ⇒ Consume selections.
+
+- `<c-n>` ⇒ Iterate next selection.
+- `<c-p>` ⇒ Iterate previous selection.
+
+## Faces
+
+- `MarkedPrimaryCursor`
+- `MarkedPrimarySelection`
+
+- `MarkedSecondaryCursor`
+- `MarkedSecondarySelection`
